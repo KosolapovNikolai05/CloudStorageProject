@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create an account</title>
+</head>
+<body>
+<form action="/signupprovider" method="post">
+    <input type="submit" value="Generate">
+    <form th:if="${newUser!=null}">
+        <h1 th:text="${newUser.getUserID()}">ID</h1>
+        <h1 th:text="${newUser.getNonEncodedAESKey()}">AES KEY</h1>
+    </form>
+</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> DATE </th>
+        <th> SIZE </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="load : ${session.loadsList}">
+        <td><span th:text="${load.getDate().toString().substring(0 , 10)}"> DATE </span></td>
+        <td><span th:text="${load.getSize()}"> SIZE </span></td>
+        <td><a th:href="@{/f/loadList/${LoadID} (LoadID=${load.getLoadID()})}"> LINK </a></td>
+    </tr>
+    </tbody>
+</table>
+<form method="POST" enctype="multipart/form-data" action="/f/downloadFiles">
+    File to upload: <input type="file" name="files" multiple >
+    <input type="submit" value="Upload"> Upload file
+</form>
+</body>
+</html>

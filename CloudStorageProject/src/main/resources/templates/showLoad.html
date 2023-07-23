@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="'Size: ' + ${session.load.getSize()}"> DATE </h1>
+<h1 th:text="'Date: ' + ${session.load.getDate().toString().substring(0 , 10)}"> SIZE </h1>
+<tr th:each="file : ${session.load.getFiles()}">
+    <td><a th:text="${file.getOriginalFilename()}"> NAME </a></td>
+    <td><a th:href="@{/f/loadList/download/${resourceFilename} (resourceFilename=${file.getOriginalFilename()})}"> DOWNLOAD </a></td>
+    <td><a th:href="@{/f/loadList/seeFile/${resourceFilename} (resourceFilename=${file.getOriginalFilename()})}"> SEE </a></td>
+    <br/>
+</tr>
+</body>
+</html>
